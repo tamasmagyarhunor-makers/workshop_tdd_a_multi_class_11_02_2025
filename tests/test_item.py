@@ -1,14 +1,18 @@
 from lib.item import Item
 
 def test_item_instantiates():
+    # scenario
     item = Item('ball', 'red')
 
+    # action
     acutal_name = item.name
     actual_colour = item.colour
-
+    
+    #expection
     expected_name = 'ball'
     expected_colour = 'red'
-
+    
+    #assertion
     assert acutal_name == expected_name
     assert actual_colour == expected_colour
 
