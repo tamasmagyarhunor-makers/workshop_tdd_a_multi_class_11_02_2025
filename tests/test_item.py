@@ -20,7 +20,7 @@ def test_item_prints_nicely_formatted():
     item = Item('ball', 'red')
 
     actual = str(item)
-    expected = "Item('ball', 'red')"
+    expected = "Item('ball', 'red') is a very nice item"
 
     assert actual == expected
 
@@ -33,4 +33,4 @@ def test_items_are_equal():
 def test_item_get_name():
     item = Item('ball', 'red')
 
-    assert item.get_name() == 'I am a ball'
+    assert item.get_name() == 'I am a(n) amazing ball'
