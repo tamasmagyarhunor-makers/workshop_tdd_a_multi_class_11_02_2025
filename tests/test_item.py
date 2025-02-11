@@ -29,3 +29,8 @@ def test_items_are_equal():
     item_2 = Item('ball', 'red')
 
     assert item_1 == item_2
+
+def test_item_get_name():
+    item = Item('ball', 'red')
+
+    assert item.get_name() == 'I am a ball'
