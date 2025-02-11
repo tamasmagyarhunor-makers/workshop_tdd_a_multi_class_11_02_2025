@@ -18,31 +18,33 @@ _Include the initializer, public properties, and public methods with all paramet
 ```python
 # EXAMPLE
 
-class Reminder:
+class Item:
     # User-facing properties:
     #   name: string
+    #   colour: string
 
-    def __init__(self, name):
+    def __init__(self, name, colour):
         # Parameters:
         #   name: string
+        #   colour: string
         # Side effects:
-        #   Sets the name property of the self object
+        #   Sets the name and colour property of the self object
         pass # No code here yet
 
-    def remind_me_to(self, task):
+    def __repr__(self):
         # Parameters:
-        #   task: string representing a single task
+        #   None
         # Returns:
-        #   Nothing
+        #   Formatted details of the object
         # Side-effects
-        #   Saves the task to the self object
+        #   None
         pass # No code here yet
 
-    def remind(self):
+    def __eq__(self):
         # Returns:
-        #   A string reminding the user to do the task
+        #   Booelan (if the 2 objects properties are the same)
         # Side-effects:
-        #   Throws an exception if no task is set
+        #   None
         pass # No code here yet
 ```
 
@@ -53,28 +55,34 @@ _Make a list of examples of how the class will behave in different situations._
 ``` python
 # EXAMPLE
 
-"""
-Given a name and a task
-#remind reminds the user to do the task
-"""
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+######
+    item = Item('ball', 'red')
 
-"""
-Given a name and no task
-#remind raises an exception
-"""
-reminder = Reminder("Kay")
-reminder.remind() # raises an error with the message "No task set."
+    acutal_name = item.name
+    actual_colour = item.colour
 
-"""
-Given a name and an empty task
-#remind still reminds the user to do the task, even though it looks odd
-"""
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
+    expected_name = 'ball'
+    expected_colour = 'red'
+
+    assert acutal_name == expected_name
+    assert actual_colour == expected_colour
+
+
+######
+
+    item = Item('ball', 'red')
+
+    actual = str(item)
+    expected = "Item('ball', 'red')"
+
+    assert actual == expected
+
+######
+
+    item_1 = Item('ball', 'red')
+    item_2 = Item('ball', 'red')
+
+    assert item_1 == item_2
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
